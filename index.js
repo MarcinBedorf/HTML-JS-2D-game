@@ -14,6 +14,7 @@ class Sprite {
         this.position = position;
         this.velocity = velocity;
         this.height = 150;
+        this.lastKey;
     };
 
     draw() {
@@ -23,7 +24,7 @@ class Sprite {
 
     update() {
         this.draw();
-        
+
         this.position.x += this.velocity.x;
         this.position.y += this.velocity.y;
 
@@ -70,9 +71,12 @@ const keys = {
     d: {
         pressed: false
     },
+    w: {
+        pressed: false
+    }
 };
 
-let lastKey 
+let lastKey
 
 function animate() {
     window.requestAnimationFrame(animate);
@@ -93,17 +97,33 @@ function animate() {
 animate();
 
 window.addEventListener('keydown', (event) => {
+    console.log(event.key);
     switch (event.key) {
+    ////// WSAD Control
         case 'd':
             keys.d.pressed = true;
             lastKey = 'd';
-        break
+            break
         case 'a':
             keys.a.pressed = true;
             lastKey = 'a';
-        break
-    }
-    
+            break
+        case 'w':
+            player.velocity.y = -10;
+            break
+    ////// Enemy Arrow Control
+            case 'ArrowRight':
+                keys.ArrowRight.pressed = true;
+                enemy.lastKey = 'ArrowRight';
+                break
+            case 'ArrowLeft':
+                keys.ArrowLeft.pressed = true;
+                enemy.lastKey = 'ArrowLeft';
+                break
+            case 'ArrowUp':
+                player.velocity.y = -10;
+                break
+        }
     console.log(event.key);
 });
 
@@ -111,31 +131,14 @@ window.addEventListener('keyup', (event) => {
     switch (event.key) {
         case 'd':
             keys.d.pressed = false;
-        break
+            break
         case 'a':
             keys.a.pressed = false;
-        break
+            break
+            // case 'w':
+            //     player.velocity.y = 0;
+            //     break
     }
-    
-    console.log(event.key);
-});
 
-window.addEventListener('keydown', (event) => {
-    switch (event.key) {
-        case 'w':
-            player.velocity.y = -10;
-        break
-    }
-    
-    console.log(event.key);
-});
-
-window.addEventListener('keyup', (event) => {
-    switch (event.key) {
-        case 'w':
-            player.velocity.y = 0;
-        break
-    }
-    
     console.log(event.key);
 });
