@@ -1,4 +1,4 @@
-By practicing my JavaScript skills, I go back in time to the 90s and trying to create an old-fashioned fighting game.
+By practicing my JavaScript skills, I go back in time to the 90s trying to create an old-fashioned fighting game.
 
 //13.05.22 - added hitbox.
 
