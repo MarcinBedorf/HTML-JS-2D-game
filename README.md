@@ -1,6 +1,7 @@
 By practicing my JavaScript skills, I go back in time to the 90s trying to create an old-fashioned fighting game.
 
-//13.05.22 - added hitbox.
+//13.05.22 - hitbox added.
+//14.05.22 - health bar added. Each hit reduces the amount of hp by 20%.
 
 1st Player control - W - jump, A - left, D - right, Spacebar - attack.
 
