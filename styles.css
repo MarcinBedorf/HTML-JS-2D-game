@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #333;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+.hb-interface {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.health-bars {
+    position: relative;
+    height: 30px;
+    width: 100%;
+}
+
+.player-health-bar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.timer {
+    flex-shrink: 0;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
+
+.full-hp {
+    background-color: yellow;
+    height: 30px;
+    width: 100%;
+}
+
+.missing-hp {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: blue;
+}
+
+.enemy-missing-hp {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: blue;
+}
