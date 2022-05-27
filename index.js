@@ -43,6 +43,35 @@ const player = new Fighter({
     offset: {
         x: 0,
         y: 0
+    },
+    imageSrc: './img/Player 1/Idle.png',
+    framesMax: 8,
+    scale: 2.5,
+    offset: {
+        x: 215,
+        y: 157
+    },
+    sprites: {
+        idle: {
+            imageSrc: './img/Player 1/Idle.png',
+            framesMax: 8
+        },
+        run: {
+            imageSrc: './img/Player 1/Run.png',
+            framesMax: 8
+        },
+        jump: {
+            imageSrc: './img/Player 1/Jump.png',
+            framesMax: 2
+        },
+        fall: {
+            imageSrc: './img/Player 1/Fall.png',
+            framesMax: 2
+        },
+        attack1: {
+            imageSrc: './img/Player 1/Attack1.png',
+            framesMax: 6
+        }
     }
 });
 
@@ -92,24 +121,36 @@ function animate() {
     background.update();
     shop.update();
     player.update();
-    enemy.update();
+    // enemy.update();
 
     player.velocity.x = 0;
     enemy.velocity.x = 0;
 
     // player movement
+    
     if (keys.a.pressed && player.lastKey === 'a') {
         player.velocity.x = -5;
+        player.switchSprite('run');
     } else if (keys.d.pressed && player.lastKey === 'd') {
         player.velocity.x = 5;
-    }
+        player.switchSprite('run');
+    } else {
+        player.switchSprite('idle');
+    };
+
+    // jumping
+    if (player.velocity.y < 0) {
+        player.switchSprite('jump');
+    } else if (player.velocity.y > 0) {
+        player.switchSprite('fall');
+    };
 
     // enemy movement
     if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
         enemy.velocity.x = -5;
     } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
         enemy.velocity.x = 5;
-    }
+    };
 
     // detect for collision
     if (
@@ -121,7 +162,7 @@ function animate() {
         player.isAttacking = false;
         enemy.health -= 20;
         document.querySelector('#enemyHealth').style.width = enemy.health + '%';
-    }
+    };
 
     if (
         rectangularCollision({
@@ -132,7 +173,7 @@ function animate() {
         enemy.isAttacking = false;
         player.health -= 20;
         document.querySelector('#playerHealth').style.width = player.health + '%';
-    }
+    };
 
     // end game based on health
     if (enemy.health <= 0 || player.health <= 0) {
@@ -141,7 +182,7 @@ function animate() {
             enemy,
             timerId
         });
-    }
+    };
 };
 
 animate();
