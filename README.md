@@ -14,3 +14,5 @@ By practicing my JavaScript skills, I go back in time to the 90s trying to creat
 //22.05.22 - background sprite added. Fixed fighters position.
 
 //27.05.22 - 1st player sprite and animations added.
+
+//31.05.22 2nd player sprite and animations added. Changed background image and created a platform graphics.
