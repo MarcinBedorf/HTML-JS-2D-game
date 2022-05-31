@@ -37,16 +37,6 @@ const platform = new Sprite({
     imageSrc: './img/platform.png'
 });
 
-const shop = new Sprite({
-    position: {
-        x: 620,
-        y: 198
-    },
-    imageSrc: './img/shop.png',
-    scale: 2.2,
-    framesMax: 6
-});
-
 const player = new Fighter({
     position: {
         x: 50,
@@ -196,8 +186,8 @@ function animate() {
     window.requestAnimationFrame(animate);
     c.fillStyle = 'black';
     c.fillRect(0, 0, canvas.width, canvas.height);
+    sky.update();
     background.update();
-    shop.update();
     // c.fillStyle = 'rgba(255, 255, 255, .1)';
     // c.fillRect(0, 0, canvas.width, canvas.height);
     player.update();
