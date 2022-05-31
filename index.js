@@ -21,6 +21,22 @@ const background = new Sprite({
     imageSrc: './img/background.png'
 });
 
+const sky = new Sprite({
+    position: {
+        x: 0,
+        y: 0
+    },
+    imageSrc: './img/sky.png'
+});
+
+const platform = new Sprite({
+    position: {
+        x: 0,
+        y: 0
+    },
+    imageSrc: './img/platform.png'
+});
+
 const shop = new Sprite({
     position: {
         x: 620,
@@ -49,7 +65,7 @@ const player = new Fighter({
     scale: 2.5,
     offset: {
         x: 215,
-        y: 157
+        y: 143
     },
     sprites: {
         idle: {
@@ -112,7 +128,7 @@ const enemy = new Fighter({
     scale: 2.7,
     offset: {
         x: 215,
-        y: 72
+        y: 59
     },
     sprites: {
         idle: {
@@ -186,6 +202,7 @@ function animate() {
     // c.fillRect(0, 0, canvas.width, canvas.height);
     player.update();
     enemy.update();
+    platform.update();
 
     player.velocity.x = 0;
     enemy.velocity.x = 0;
