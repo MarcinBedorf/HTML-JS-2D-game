@@ -7,35 +7,46 @@ canvas.height = 576;
 
 c.fillRect(0, 0, canvas.width, canvas.height);
 
+// layers
+let layerSpeed = 1;
+
+const skyLayer = new Image();
+skyLayer.src = './img/sky.png';
+const cloudsLayer3 = new Image();
+cloudsLayer3.src = './img/clouds3.png';
+const background = new Image();
+background.src = './img/background.png';
+const cloudsLayer2 = new Image();
+cloudsLayer2.src = './img/clouds2.png';
+const cloudsLayer1 = new Image();
+cloudsLayer1.src = './img/clouds1.png';
+const platformLayer = new Image();
+platformLayer.src = './img/platform.png'
+
+const layer1 = new Layer(skyLayer, 0);
+const layer2 = new Layer(cloudsLayer3, 0.2);
+const layer3 = new Layer(background, 0);
+const layer4 = new Layer(cloudsLayer2, 0.5);
+const layer6 = new Layer(cloudsLayer1, 0.8);
+const layer5 = new Layer(platformLayer, 0);
+
+const gameObjects = [layer1, layer2, layer3, layer4, layer5, layer6];
+
+//--------------------------------------------//
+
 //// Gravity
 
 const gravity = 0.7;
 
 // background image
 
-const background = new Sprite({
-    position: {
-        x: 0,
-        y: 0
-    },
-    imageSrc: './img/background.png'
-});
-
-const sky = new Sprite({
-    position: {
-        x: 0,
-        y: 0
-    },
-    imageSrc: './img/sky.png'
-});
-
-const platform = new Sprite({
-    position: {
-        x: 0,
-        y: 0
-    },
-    imageSrc: './img/platform.png'
-});
+// const platform = new Sprite({
+//     position: {
+//         x: 0,
+//         y: 0
+//     },
+//     imageSrc: './img/platform.png'
+// });
 
 const player = new Fighter({
     position: {
@@ -186,13 +197,15 @@ function animate() {
     window.requestAnimationFrame(animate);
     c.fillStyle = 'black';
     c.fillRect(0, 0, canvas.width, canvas.height);
-    sky.update();
-    background.update();
     // c.fillStyle = 'rgba(255, 255, 255, .1)';
     // c.fillRect(0, 0, canvas.width, canvas.height);
+    gameObjects.forEach(object => {
+        object.updateLayer();
+        object.drawLayer();
+    });
     player.update();
     enemy.update();
-    platform.update();
+    // platform.update();
 
     player.velocity.x = 0;
     enemy.velocity.x = 0;
