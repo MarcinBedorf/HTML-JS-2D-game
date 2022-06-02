@@ -10,12 +10,20 @@ function rectangularCollision({
     )
 };
 
+
+
 function determineWinner({
     player,
     enemy,
     timerId
 }) {
     clearTimeout(timerId);
+
+    /////KURWAJAPIERDOLECOZTYMTIMEOUTEM
+    setTimeout(function(){
+        document.querySelector('#restart').style.display = 'flex';
+    }, 1000);
+    
     document.querySelector('#displayText').style.display = 'flex';
     if (player.health === enemy.health) {
         document.querySelector('#displayText').innerHTML = 'Tie';
