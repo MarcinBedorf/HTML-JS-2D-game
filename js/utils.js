@@ -19,10 +19,7 @@ function determineWinner({
 }) {
     clearTimeout(timerId);
 
-    /////KURWAJAPIERDOLECOZTYMTIMEOUTEM
-    setTimeout(function(){
-        document.querySelector('#restart').style.display = 'flex';
-    }, 1000);
+    document.querySelector('#restart').style.display = 'flex';
     
     document.querySelector('#displayText').style.display = 'flex';
     if (player.health === enemy.health) {
