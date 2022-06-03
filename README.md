@@ -18,3 +18,5 @@ By practicing my JavaScript skills, I go back in time to the 90s trying to creat
 //31.05.22 - 2nd player sprite and animations added. Changed background image and created a platform graphics.
 
 //1.06.22 - added new moving layers.
+
+//2.06.22 - Restart game button added.
