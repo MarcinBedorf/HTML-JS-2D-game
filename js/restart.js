@@ -1,7 +1,7 @@
 const restartBtn = document.querySelector('#restart');
 
 restartBtn.addEventListener('click', () => {
-    restart.style.display = 'none';
+    restartBtn.style.display = 'none';
     init();
 });
 
