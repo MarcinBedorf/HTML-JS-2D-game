@@ -313,6 +313,7 @@ window.addEventListener('keydown', (event) => {
                 player.velocity.y = -20;
                 break
             case ' ':
+                if (event.repeat) {return}
                 player.attack();
                 break
         }
@@ -333,6 +334,7 @@ window.addEventListener('keydown', (event) => {
                 enemy.velocity.y = -20;
                 break
             case 'ArrowDown':
+                if (event.repeat) {return}
                 enemy.attack();
                 break
         };
