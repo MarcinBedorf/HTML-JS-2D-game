@@ -4,6 +4,8 @@ By practicing my JavaScript skills, I go back in time to the 90s trying to creat
 
 2nd Player control - Up arrow - jump, left arrow - left, right arrow - right, down arrow - attack.
 
+--------------------
+
 
 //13.05.22 - hitbox added.
 
