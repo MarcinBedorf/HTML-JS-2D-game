@@ -24,3 +24,9 @@ By practicing my JavaScript skills, I go back in time to the 90s trying to creat
 //2.06.22 - Restart game button added.
 
 //4.06 - fixed an issue when players were flying after holding jump button.
+
+----------
+
+Known issues:
+
+- 2nd player's sprite is facing the wrong way (excluding hitbox).
